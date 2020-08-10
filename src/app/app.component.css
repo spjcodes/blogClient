@@ -1,0 +1,16 @@
+.myHead{
+
+}
+
+.myBody{
+  border:1px solid red;
+  width:100%;
+  height:50px;
+
+  margin:24px auto;
+}
+
+.myFooter{
+  float:left;
+
+}
