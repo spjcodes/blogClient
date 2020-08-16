@@ -1,0 +1,42 @@
+<div class="font14" style="font-size: 12px;">
+  <div class="card" >
+    <div class="card-header">
+      <button  class="btn btn-primary" (click)="createArticle()">新增</button>
+      <span  style="text-align:center;width:100%;margin-left: 40%;">文章管理</span>
+    </div>
+    <table  class="table table-striped">
+      <tr >
+        <td>主键</td>
+        <td>标题</td>
+        <td>简介</td>
+        <td>封面</td>
+        <td>类型</td>
+        <td>内容</td>
+        <td>是否开启评论</td>
+        <td>是否原创</td>
+        <td>创建时间</td>
+        <td>觉得有用</td>
+        <td>操作</td>
+      </tr>
+
+
+      <tr *ngFor="let a of artls">
+        <td>{{a.id}}</td>
+        <td>{{a.title}}</td>
+        <td>{{a.intro}}</td>
+        <td>{{a.bolgcover}}</td>
+        <td>{{a.typeid}}</td>
+        <td>{{a.content}}</td>
+        <td>{{a.iscomment}}</td>
+        <td>{{a.isoriginal}}</td>
+        <td>{{a.createtime}}</td>
+        <td>{{a.isuseful}}</td>
+        <td>
+          <button class="btn btn-warning" (click)="updateArticle(a.id)" >修改</button>
+          <button class="btn btn-danger" (click)="deleteById(a.id)">删除</button>
+          <button class="btn btn-info" >预览</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

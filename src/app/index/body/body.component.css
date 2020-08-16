@@ -1,14 +1,14 @@
 .bodyLeft {
   float:left;
   border:1px solid #ff6486;
-  height:100px;
+  height: auto;
   width:100%;
 }
 
 .bodyRight {
   border:1px solid black;
   float:right;
-  height:100px;
+  height:auto;
   width:100%;
 }
 

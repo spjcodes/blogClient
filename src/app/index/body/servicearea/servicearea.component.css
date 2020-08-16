@@ -1,15 +1,15 @@
 .service-wrap{
+  border-radius: 5%;
+  overflow:hidden;
   width:100%;
   padding:0px;
   margin:0px 0px 10px 0px;
-  border:1px solid #1618ff;
   height: auto;
 }
 
 .service-icon {
   width:100%;
   htight:100%;
-  opacity:1;
   background-color:black;
 }
 
@@ -18,9 +18,9 @@
   height:100%;
   position:absolute;
   left:0;
-  top:0;
-  background-color: black;
-  opacity:0.1;
+  top:-5px;
+  background-color: #161140;
+  opacity:0.2;
 }
 
 .service-content {

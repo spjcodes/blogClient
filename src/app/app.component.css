@@ -3,7 +3,7 @@
 }
 
 .myBody{
-  border:1px solid red;
+  border:1px solid #ffa90b;
   width:100%;
   height:50px;
 
@@ -11,6 +11,10 @@
 }
 
 .myFooter{
-  float:left;
-
+  margin:auto 0px;
+  width:100%;
+  height:150px;
+  background-color: black;
+  color: white;
+  text-align: center;
 }
