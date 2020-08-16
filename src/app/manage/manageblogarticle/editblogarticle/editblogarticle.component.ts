@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BlogArticle} from '../../../model/blogarticle';
 import {BlogarticleserService} from '../../../service/blogarticleser.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {EditorConfig} from '../../../editor/model/editor-config';
+import {Mdconfig} from '../../../mdeditor/config/mdconfig';
 
 
 @Component({
@@ -17,6 +17,8 @@ export class EditblogarticleComponent implements OnInit {
   md: boolean;
   article: BlogArticle;
   patament: string;
+
+  // ckedit配置
   protected  config: any = {
     uiColor: '#d0f8ce',   // 编辑框背景色
     language: 'zh-cn',  // 显示语言
@@ -27,10 +29,12 @@ export class EditblogarticleComponent implements OnInit {
       'Superscript', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blockquote'], ['Styles',
       'Format', 'Font', 'FontSize'] ]  // 工具部分
   };
-  protected editContent = '';
 
-  mdconf = new EditorConfig();
+
+  // makedown 编辑器配置
+  mdconf = new Mdconfig();
   markdown = '测试语句';
+
 
   constructor(private artSer: BlogarticleserService, private activeRouter: ActivatedRoute, private router: Router) {
   }
@@ -72,7 +76,6 @@ export class EditblogarticleComponent implements OnInit {
 
   private initArticle() {
     this.patament = this.activeRouter.snapshot.params['id'];
-    alert(this.patament);
     if (this.patament === 'add') {
       this.article = new BlogArticle();
     } else {

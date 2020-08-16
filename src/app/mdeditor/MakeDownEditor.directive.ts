@@ -1,14 +1,15 @@
 import {AfterViewInit, Attribute, Directive, EventEmitter, Input, Output} from '@angular/core';
-import {EditorConfig} from './model/editor-config';
+import {Mdconfig} from './config/mdconfig';
 
 declare var editormd: any;
 declare var $: any;
 
 @Directive({
-  selector: '[appEditorMd]'
+  selector: '[appMakeDownEditor]'
 })
-export class EditorMdDirective implements AfterViewInit {
-  @Input() editormdConfig: EditorConfig; // 配置选项
+export class MakeDownEditorDirective implements AfterViewInit {
+
+  @Input() editormdConfig: Mdconfig; // 配置选项
   @Output() onEditorChange: EventEmitter<string> = new EventEmitter<string>(); // 发射器
   editor: any; // editormd编辑器
 
@@ -26,4 +27,5 @@ export class EditorMdDirective implements AfterViewInit {
       out.emit(textarea.val());
     });
   }
+
 }

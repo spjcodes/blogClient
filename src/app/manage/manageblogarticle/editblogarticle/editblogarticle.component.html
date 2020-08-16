@@ -42,9 +42,12 @@
 
       </ckeditor>
 
-      <div *ngIf="md"  appEditorMd [editormdConfig]="mdconf" (onEditorChange)="syncModel($event)">
-        <textarea style="display: block;" [(ngModel)]="article.content" [ngModelOptions]="{standalone: true}"></textarea>
+      <div *ngIf="md" id="md" appMakeDownEditor [editormdConfig]="mdconf" (onEditorChange)="syncModel($event)">
+        <textarea style="display: block;" [(ngModel)]="article.content" name="content"></textarea>
       </div>
+
+
+
 
     </form>
 

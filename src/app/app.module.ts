@@ -17,9 +17,9 @@ import { ManagebodyComponent } from './manage/managebody/managebody.component';
 import { ManageblogarticleComponent } from './manage/manageblogarticle/manageblogarticle.component';
 import {BlogarticleserService} from './service/blogarticleser.service';
 import {ConfigService} from './service/config.service';
-import { EditblogarticleComponent } from './manage/manageblogarticle/editblogarticle/editblogarticle.component';
+import { EditblogarticleComponent} from './manage/manageblogarticle/editblogarticle/editblogarticle.component';
 import {CKEditorModule} from 'ng2-ckeditor';
-import {EditorMdDirective} from './editor/editor-md.directive';
+import {MakeDownEditorDirective} from './mdeditor/MakeDownEditor.directive';
 
 
 @NgModule({
@@ -37,8 +37,7 @@ import {EditorMdDirective} from './editor/editor-md.directive';
     ManagebodyComponent,
     ManageblogarticleComponent,
     EditblogarticleComponent,
-    EditorMdDirective,
-
+    MakeDownEditorDirective,
   ],
   imports: [
     BrowserModule,
