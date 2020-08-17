@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ConfigService} from './config.service';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {BlogArticle} from '../model/blogarticle';
 
 @Injectable()
@@ -8,6 +8,7 @@ export class BlogarticleserService {
 
   constructor(private config: ConfigService, private http: HttpClient) {
   }
+  str: string;
 
   private getBlogArticleListURL = this.config.getHost() + 'blogArticle/getBlogArticleList';
   getBlogArticleList() {
@@ -38,5 +39,18 @@ export class BlogarticleserService {
   private deleteArtByIdURL = this.config.getHost() + 'blogArticle/deleteBlogArtcle';
   deleteArtById(id: string) {
     return this.http.post(this.deleteArtByIdURL, {'id': id}).toPromise();
+  }
+
+  private fileUploadURL = this.config.getHost() + 'blogArticle/uploadFile';
+  uploadFile(bolgcover: string, uploadData: FormData) {
+    return this.http.post(this.fileUploadURL, uploadData);
+    /*.subscribe(
+      (data: any) => {
+        if (data !== null) {
+          this.str = this.config.getHost() + 'pic/' + data.object.fileName;
+          console.dir(this.str);
+        }
+      }
+    );*/
   }
 }

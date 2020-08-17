@@ -6,27 +6,37 @@
   </div>
   <div class="card-body">
     <form >
-      <label class="flotleft">标题</label>
+      <label class="flotleft" >标题</label>
       <input  [(ngModel)]="article.title"  name="title"  class="form-control form-control-lg martop"
               type="text" placeholder="标题">
-      <label class="float-left" >testt{{article.title}}</label>
-
       <label class="flotleft">简介</label>
       <input  [(ngModel)]="article.intro"  name="intro"  class="form-control form-control-lg martop"
               type="text" placeholder="主题简介">
-      <label class="flotleft">图片选择</label>
-      <label class="flotleft"></label><div class="input-group mb-3">
-      <div class="custom-file">
-        <input type="file" class="custom-file-input" (change)="onFileChanged($event)">
-        <label class="custom-file-label"  >选择图片</label>
-      </div>
-      <div class="input-group-append">
-        <button class="input-group-text" (click)="onUpload()" >上传</button>
-      </div>
-    </div>
+      <label class="flotleft">文章类型</label>
+      <select >
+        <option >aa</option>
+        <option>bb</option>
+        <option>cc</option>
+      </select>
 
-      <!--      <input  [(ngModel)]="article.ccontent"  name="ccontent"  class="form-control form-control-lg martop"-->
-      <!--              type="text" placeholder="内容">-->
+      <label class="flotleft">是否开启评论</label>
+      <input  [(ngModel)]="article.iscomment"  name="intro"  class="form-control form-control-lg martop"
+              type="text" placeholder="主题简介">
+      <label class="flotleft">是否原创</label>
+      <input  [(ngModel)]="article.isoriginal"  name="intro"  class="form-control form-control-lg martop"
+              type="text" placeholder="主题简介">
+
+      <label class="flotleft">图片选择</label>
+      <label class="flotleft"></label>
+      <div class="input-group mb-3">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" (change)="onFileChanged($event)">
+          <label class="custom-file-label"  >选择图片</label>
+        </div>
+        <div class="input-group-append">
+          <button class="input-group-text" (click)="onUpload(article.bolgcover)" >上传</button>
+        </div>
+    </div>
 
       <p>
         <label class="flotleft">内容编辑</label>

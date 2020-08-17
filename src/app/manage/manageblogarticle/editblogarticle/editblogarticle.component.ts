@@ -3,6 +3,9 @@ import {BlogArticle} from '../../../model/blogarticle';
 import {BlogarticleserService} from '../../../service/blogarticleser.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Mdconfig} from '../../../mdeditor/config/mdconfig';
+import {HttpErrorResponse} from '@angular/common/http';
+import {Subscription} from 'rxjs/Subscription';
+import {ResponseBody} from '../../../model/responseBody';
 
 
 @Component({
@@ -17,6 +20,8 @@ export class EditblogarticleComponent implements OnInit {
   md: boolean;
   article: BlogArticle;
   patament: string;
+  private selectedFile: string;
+
 
   // ckedit配置
   protected  config: any = {
@@ -30,11 +35,10 @@ export class EditblogarticleComponent implements OnInit {
       'Format', 'Font', 'FontSize'] ]  // 工具部分
   };
 
-
-  // makedown 编辑器配置
+  // makeDown 编辑器配置
   mdconf = new Mdconfig();
   markdown = '测试语句';
-
+  private str: string;
 
   constructor(private artSer: BlogarticleserService, private activeRouter: ActivatedRoute, private router: Router) {
   }
@@ -51,12 +55,20 @@ export class EditblogarticleComponent implements OnInit {
   }
 
 
-  onFileChanged($event: Event) {
-
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
   }
 
-  onUpload() {
-
+  onUpload(bolgcover: string) {
+    const uploadData = new FormData();
+    uploadData.append('multFile', this.selectedFile);
+    this.artSer.uploadFile(this.article.bolgcover, uploadData).subscribe(
+      (data: any) => {
+      if (data !== null) {
+        this.article.bolgcover = 'http://localhost:8080/pic/' + data.object.fileName;
+      }
+      console.dir(this.article.bolgcover);
+    });
   }
 
   save(article: BlogArticle) {
