@@ -12,19 +12,26 @@
       <label class="flotleft">简介</label>
       <input  [(ngModel)]="article.intro"  name="intro"  class="form-control form-control-lg martop"
               type="text" placeholder="主题简介">
+
       <label class="flotleft">文章类型</label>
-      <select >
-        <option >aa</option>
-        <option>bb</option>
-        <option>cc</option>
+      <select (change)="typleSelect($event.target.value)" class="custom-select">
+        <optgroup class=" selecttitle" label="文章类型">
+        <option value={{i}} *ngFor="let i of types">
+          {{i}}
+        </option>
       </select>
 
       <label class="flotleft">是否开启评论</label>
-      <input  [(ngModel)]="article.iscomment"  name="intro"  class="form-control form-control-lg martop"
-              type="text" placeholder="主题简介">
+      <select  (change)="isCommon($event.target.value)" class="custom-select"  >
+        <option  value="1">是</option>
+        <option value="0">否</option>
+      </select>
+
       <label class="flotleft">是否原创</label>
-      <input  [(ngModel)]="article.isoriginal"  name="intro"  class="form-control form-control-lg martop"
-              type="text" placeholder="主题简介">
+      <select (change)="isOringle($event.target.value)" class="custom-select">
+        <option value="true">是</option>
+        <option value="false">否</option>
+      </select>
 
       <label class="flotleft">图片选择</label>
       <label class="flotleft"></label>

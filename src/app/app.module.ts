@@ -20,6 +20,8 @@ import {ConfigService} from './service/config.service';
 import { EditblogarticleComponent} from './manage/manageblogarticle/editblogarticle/editblogarticle.component';
 import {CKEditorModule} from 'ng2-ckeditor';
 import {MakeDownEditorDirective} from './mdeditor/MakeDownEditor.directive';
+import {ArticletypeService} from './service/articletype.service';
+import { ManagetypesComponent } from './manage/managetypes/managetypes.component';
 
 
 @NgModule({
@@ -38,6 +40,7 @@ import {MakeDownEditorDirective} from './mdeditor/MakeDownEditor.directive';
     ManageblogarticleComponent,
     EditblogarticleComponent,
     MakeDownEditorDirective,
+    ManagetypesComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,12 +51,11 @@ import {MakeDownEditorDirective} from './mdeditor/MakeDownEditor.directive';
     CKEditorModule,
 
 
-
   ],
   providers: [
     ConfigService,
     BlogarticleserService,
-
+    ArticletypeService,
   ],
   bootstrap: [AppComponent]
 })

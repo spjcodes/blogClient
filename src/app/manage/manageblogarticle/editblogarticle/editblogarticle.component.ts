@@ -3,8 +3,7 @@ import {BlogArticle} from '../../../model/blogarticle';
 import {BlogarticleserService} from '../../../service/blogarticleser.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Mdconfig} from '../../../mdeditor/config/mdconfig';
-import {HttpErrorResponse} from '@angular/common/http';
-import {Subscription} from 'rxjs/Subscription';
+import {ArticletypeService} from '../../../service/articletype.service';
 import {ResponseBody} from '../../../model/responseBody';
 
 
@@ -21,7 +20,7 @@ export class EditblogarticleComponent implements OnInit {
   article: BlogArticle;
   patament: string;
   private selectedFile: string;
-
+  types: Array<string>;
 
   // ckedit配置
   protected  config: any = {
@@ -32,7 +31,8 @@ export class EditblogarticleComponent implements OnInit {
       'PasteFromWord', '-', 'Link', 'Unlink', 'Anchor', '-', 'Image', 'Table', 'HorizontalRule',
       'Smiley', 'SpecialChar', '-', 'Source'], ['Bold', 'Italic', 'Underline', 'Strike', '-', 'Subscript',
       'Superscript', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blockquote'], ['Styles',
-      'Format', 'Font', 'FontSize'] ]  // 工具部分
+      'Format', 'Font', 'FontSize'], [{filebrowserImageUploadUrl: '/xxx/uploadImageAddress'}]  ], // 工具部分
+
   };
 
   // makeDown 编辑器配置
@@ -40,13 +40,31 @@ export class EditblogarticleComponent implements OnInit {
   markdown = '测试语句';
   private str: string;
 
-  constructor(private artSer: BlogarticleserService, private activeRouter: ActivatedRoute, private router: Router) {
+  constructor(private artSer: BlogarticleserService, private activeRouter: ActivatedRoute,
+              private router: Router, private articleTypesSer: ArticletypeService) {
   }
-
 
   ngOnInit() {
     this.initArticle();
     this.mdistrue();
+    this.initTypeList();
+  }
+
+  initTypeList() {
+    this.articleTypesSer.getTypes().then((data: any) => {
+      if (data.status !== 'faild' ) {
+        this.types = new Array<string>();
+        this.types = data.object;
+        this.article.typeid = this.types[0];
+      }
+    });
+  }
+
+
+
+
+  onchange(key: any) {
+   alert(key);
   }
 
   // 同步属性内容
@@ -72,7 +90,23 @@ export class EditblogarticleComponent implements OnInit {
   }
 
   save(article: BlogArticle) {
-
+    if (this.patament === 'add') {
+      this.artSer.addArticle(article).then((data: ResponseBody) => {
+        if(data.status === 'successful') {
+          this.router.navigate(['./manageIndex/blogArticleManage']);
+        } else {
+          alert('存储信息失败！');
+        }
+      });
+    } else {
+      this.artSer.updateArticle(article).then((data: ResponseBody) => {
+        if(data.status === 'successful') {
+          this.router.navigate(['./manageIndex/blogArticleManage']);
+        } else {
+          alert('存储信息失败！');
+        }
+      });
+    }
   }
 
   reset() {
@@ -80,6 +114,7 @@ export class EditblogarticleComponent implements OnInit {
     this.article.intro = '';
     this.article.bolgcover = '';
     this.article.typeid = '';
+    this.article.content = '';
     this.article.iscomment = 0;
     this.article.isoriginal = 0;
     this.article.createtime = '';
@@ -115,5 +150,17 @@ export class EditblogarticleComponent implements OnInit {
     this.ck = false;
   }
 
+  isOringle(value: any) {
+    this.article.isoriginal = value;
+  }
+
+  isCommon(value: any) {
+    this.article.iscomment = value;
+  }
+
+  typleSelect(value: any) {
+    console.dir(value);
+    this.article.typeid = value;
+  }
 
 }

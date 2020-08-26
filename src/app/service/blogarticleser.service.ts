@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {ConfigService} from './config.service';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {BlogArticle} from '../model/blogarticle';
+import {baseBuildCommandOptions} from '@angular/cli/commands/build';
 
 @Injectable()
 export class BlogarticleserService {
@@ -23,12 +24,14 @@ export class BlogarticleserService {
       'title': blogArticle.title ,
       'intro': blogArticle.intro ,
       'bolgcover': blogArticle.bolgcover,
+      'typeid': blogArticle.typeid,
+      'content': blogArticle.content,
       'iscomment': blogArticle.iscomment,
       'isoriginal': blogArticle.isoriginal,
       'createtime': blogArticle.createtime,
       'isuseful':  blogArticle.isuseful
     }
-    return this.http.post(this.addArticleURL, p);
+    return this.http.post(this.addArticleURL, p).toPromise();
   }
 
   private getBlogArticleURL = this.config.getHost() + 'blogArticle/getBlogsArtcleById';
@@ -52,5 +55,22 @@ export class BlogarticleserService {
         }
       }
     );*/
+  }
+
+  updateArticleURL = this.config.getHost() + 'blogArticle/updateBlogArtcle';
+  updateArticle(blogArticle: BlogArticle) {
+    let p = {
+      'id': blogArticle.id,
+      'title': blogArticle.title ,
+      'intro': blogArticle.intro ,
+      'bolgcover': blogArticle.bolgcover,
+      'typeid': blogArticle.typeid,
+      'content': blogArticle.content,
+      'iscomment': blogArticle.iscomment,
+      'isoriginal': blogArticle.isoriginal,
+      'createtime': blogArticle.createtime,
+      'isuseful':  blogArticle.isuseful
+    }
+    return this.http.post(this.updateArticleURL, p).toPromise();
   }
 }
