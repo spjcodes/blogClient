@@ -3,4 +3,14 @@
 *{
   margin:0px;
   padding:0px;
+  font-size:12px;
+}
+
+.mangeImg {
+  width:100px;
+  height: auto;
+}
+
+.fontSize16 {
+  font-size:18px;
 }

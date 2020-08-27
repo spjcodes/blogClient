@@ -4,6 +4,8 @@ import {ManageindexComponent} from './manage/manageindex/manageindex.component';
 import {PageoneComponent} from './index/pageone/pageone.component';
 import {ManageblogarticleComponent} from './manage/manageblogarticle/manageblogarticle.component';
 import {EditblogarticleComponent} from './manage/manageblogarticle/editblogarticle/editblogarticle.component';
+import {ManagetypesComponent} from './manage/managetypes/managetypes.component';
+import {EdittypeComponent} from './manage/managetypes/edittype/edittype.component';
 
 const routes: Routes = [
   {path: 'index', component: PageoneComponent},
@@ -14,6 +16,8 @@ const routes: Routes = [
       {path: '' , component: ManageblogarticleComponent },
       {path: 'blogArticleManage', component: ManageblogarticleComponent},
       {path: 'editArticle/:id', component: EditblogarticleComponent},
+      {path: 'typesManage', component: ManagetypesComponent},
+      {path: 'editType/:id', component: EdittypeComponent},
 
 
     ],

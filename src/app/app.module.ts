@@ -22,6 +22,7 @@ import {CKEditorModule} from 'ng2-ckeditor';
 import {MakeDownEditorDirective} from './mdeditor/MakeDownEditor.directive';
 import {ArticletypeService} from './service/articletype.service';
 import { ManagetypesComponent } from './manage/managetypes/managetypes.component';
+import { EdittypeComponent } from './manage/managetypes/edittype/edittype.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { ManagetypesComponent } from './manage/managetypes/managetypes.component
     EditblogarticleComponent,
     MakeDownEditorDirective,
     ManagetypesComponent,
+    EdittypeComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +51,7 @@ import { ManagetypesComponent } from './manage/managetypes/managetypes.component
     HttpClientModule,
     FormsModule,
     CKEditorModule,
+
 
 
   ],

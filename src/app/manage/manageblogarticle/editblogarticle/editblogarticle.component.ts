@@ -100,7 +100,7 @@ export class EditblogarticleComponent implements OnInit {
       });
     } else {
       this.artSer.updateArticle(article).then((data: ResponseBody) => {
-        if(data.status === 'successful') {
+        if (data.status === 'successful') {
           this.router.navigate(['./manageIndex/blogArticleManage']);
         } else {
           alert('存储信息失败！');

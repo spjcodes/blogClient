@@ -1,29 +1,33 @@
 <div class="row">
-  <div class="container" style="width:90%;htight:auto;margin:10px 5%;">
-    <img src="../../../../assets/imgs/ionic.jpg" alt="..." class="rounded" width="100%" height="auto">
-  </div>
-</div>
+  <div style="width:100%;" >
 
-<ul class="list-unstyled">
-  <li class="media">
-    <img src="..." class="mr-3" alt="...">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">List-based media object</h5>
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    <div class="card" style="width:100%;">
+      <!--<img src="../../../../assets/imgs/ionic.jpg" alt="..."  class="img-circle image-responsive" width="100%" height="auto">-->
+      <img style="border-radius: 50%;margin:0 auto;" src="../../../../assets/imgs/ionic.jpg" alt="..."  width="200"  height="200">
+      <div class="card-body" >
+        <h5 class="card-title">个人简介</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a  class="btn btn-primary">cell me</a>
+      </div>
     </div>
-  </li>
-  <li class="media my-4">
-    <img src="..." class="mr-3" alt="...">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">List-based media object</h5>
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+  </div>
+
+</div>
+<h5 style="margin-top:24px;">文章分类</h5>
+<hr>
+<ul class="list-unstyled" style="margin-top: 24px">
+  <li class="media row" *ngFor="let t of typesList" style="margin-top: 18px;">
+    <div class="col-4" style="width:100%;overflow: hidden;">
+      <img [src]="t.icon"  width="86" class="mr-2" alt="...">
     </div>
+   <div style="margin-left:12px;margin-bottom:12px">
+     <div class="media-body">
+       <h5 class="mt-0 mb-1">{{t.typename}}<span class="badge badge-secondary" style="font-size: 12px;margin-left:8px;">12{{t.totals}}</span></h5>
+     </div>
+   </div>
+    <span style="padding: 8px 0; width:100%;border-bottom:1.5px #c5f3ff dashed"></span>
   </li>
-  <li class="media">
-    <img src="..." class="mr-3" alt="...">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">List-based media object</h5>
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-    </div>
-  </li>
+
+
 </ul>
