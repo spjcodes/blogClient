@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {BlogArticleTypes} from '../../model/BlogArticleTypes';
+import {ArticletypeService} from '../../service/articletype.service';
+import {ResponseBody} from '../../model/responseBody';
 
 @Component({
   selector: 'app-head',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeadComponent implements OnInit {
 
-  constructor() { }
+  typeList: Array<BlogArticleTypes>;
+
+  constructor(private typerSer: ArticletypeService) { }
 
   ngOnInit() {
+    this.initTypeList();
+    console.dir(this.typeList);
   }
 
+  private initTypeList() {
+    this.typerSer.getTypes().then((data: ResponseBody) => {
+      if (data.status === 'successful') {
+        this.typeList = new Array<BlogArticleTypes>();
+        this.typeList = data.object;
+      } else {
+        alert('erro:' + data.object);
+      }
+    });
+  }
 }

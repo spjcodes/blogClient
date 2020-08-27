@@ -23,6 +23,9 @@ import {MakeDownEditorDirective} from './mdeditor/MakeDownEditor.directive';
 import {ArticletypeService} from './service/articletype.service';
 import { ManagetypesComponent } from './manage/managetypes/managetypes.component';
 import { EdittypeComponent } from './manage/managetypes/edittype/edittype.component';
+import { ManageresumerComponent } from './manage/manageresumer/manageresumer.component';
+import {ResumerService} from './service/resumer.service';
+import { EditresumerComponent } from './manage/manageresumer/editresumer/editresumer.component';
 
 
 @NgModule({
@@ -43,6 +46,8 @@ import { EdittypeComponent } from './manage/managetypes/edittype/edittype.compon
     MakeDownEditorDirective,
     ManagetypesComponent,
     EdittypeComponent,
+    ManageresumerComponent,
+    EditresumerComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +64,7 @@ import { EdittypeComponent } from './manage/managetypes/edittype/edittype.compon
     ConfigService,
     BlogarticleserService,
     ArticletypeService,
+    ResumerService,
   ],
   bootstrap: [AppComponent]
 })

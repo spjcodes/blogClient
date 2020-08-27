@@ -29,10 +29,7 @@
             技术文章
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item fontSize16" href="#">Action</a>
-            <a class="dropdown-item fontSize16" href="#">Another action</a>
-            <div class="dropdown-divider fontSize16"></div>
-            <a class="dropdown-item fontSize16" href="#">Something else here</a>
+            <a class="dropdown-item fontSize14" *ngFor="let type of typeList">{{type}}</a>
           </div>
         </li>
       </ul>

@@ -6,6 +6,8 @@ import {ManageblogarticleComponent} from './manage/manageblogarticle/managebloga
 import {EditblogarticleComponent} from './manage/manageblogarticle/editblogarticle/editblogarticle.component';
 import {ManagetypesComponent} from './manage/managetypes/managetypes.component';
 import {EdittypeComponent} from './manage/managetypes/edittype/edittype.component';
+import {ManageresumerComponent} from './manage/manageresumer/manageresumer.component';
+import {EditresumerComponent} from './manage/manageresumer/editresumer/editresumer.component';
 
 const routes: Routes = [
   {path: 'index', component: PageoneComponent},
@@ -18,8 +20,8 @@ const routes: Routes = [
       {path: 'editArticle/:id', component: EditblogarticleComponent},
       {path: 'typesManage', component: ManagetypesComponent},
       {path: 'editType/:id', component: EdittypeComponent},
-
-
+      {path: 'resumerManage', component: ManageresumerComponent},
+      {path: 'editResumer/:id', component: EditresumerComponent},
     ],
   },
 

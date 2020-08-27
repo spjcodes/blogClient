@@ -1,0 +1,36 @@
+<div class="card text-center">
+
+  <div class="card-header">
+    <span  class= " glyphicon glyphicon-chevron-left"></span>
+    简历编辑
+  </div>
+  <div class="card-body">
+    <form >
+
+      <label class="flotleft">是否显示</label>
+      <select  (change)="isShow($event.target.value)" class="custom-select"  >
+        <option  value="true">是</option>
+        <option value="false">否</option>
+      </select>
+
+      <p>
+        <label class="flotleft">内容编辑</label>
+        <br>
+      </p>
+      <div  id="md" appMakeDownEditor [editormdConfig]="mdconf" (onEditorChange)="syncModel($event)">
+        <textarea style="display: block;" [(ngModel)]="resumer.contetn" name="content"></textarea>
+      </div>
+
+    </form>
+
+    <div >
+      <button class="btn btn-primary" (click)="save(resumer)">提交</button>
+      <button class="btn btn-danger" (click)="reset()" >重置</button>
+    </div>
+
+  </div>
+
+  <div class="card-footer text-muted">
+    admin
+  </div>
+</div>

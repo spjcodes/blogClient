@@ -32,7 +32,6 @@ export class EditblogarticleComponent implements OnInit {
       'Smiley', 'SpecialChar', '-', 'Source'], ['Bold', 'Italic', 'Underline', 'Strike', '-', 'Subscript',
       'Superscript', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blockquote'], ['Styles',
       'Format', 'Font', 'FontSize'], [{filebrowserImageUploadUrl: '/xxx/uploadImageAddress'}]  ], // 工具部分
-
   };
 
   // makeDown 编辑器配置
