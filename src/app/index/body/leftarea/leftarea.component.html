@@ -3,10 +3,12 @@
 
     <div class="card" style="width:100%;">
       <!--<img src="../../../../assets/imgs/ionic.jpg" alt="..."  class="img-circle image-responsive" width="100%" height="auto">-->
-      <img style="border-radius: 50%;margin:0 auto;" src="http://localhost:8080/pic/1598518596538.jpg" alt="..."  width="200"  height="200">
+      <img style="border-radius: 50%;margin:0 auto;" [src]="selfIntro.icon" alt="..."  width="200"  height="200">
       <div class="card-body" >
         <h5 class="card-title">个人简介</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p class="card-text">
+          {{selfIntro.intro}}
+        </p>
         <a  class="btn btn-primary">cell me</a>
       </div>
     </div>

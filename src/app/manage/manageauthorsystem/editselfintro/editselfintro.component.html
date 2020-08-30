@@ -1,0 +1,38 @@
+<div class="card text-center">
+
+  <div class="card-header">
+    <span  class= " glyphicon glyphicon-chevron-left"></span>
+    轮播区编辑
+  </div>
+  <div class="card-body">
+    <form >
+
+      <label class="flotleft">简介</label>
+      <input  [(ngModel)]="selfIntro.intro"  name="intro"  class="form-control form-control-lg martop"
+              type="text" placeholder="主题简介">
+
+      <label class="flotleft">图片选择</label>
+      <label class="flotleft"></label>
+      <div class="input-group mb-3">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" (change)="onFileChanged($event)">
+          <label class="custom-file-label"  >选择图片</label>
+        </div>
+        <div class="input-group-append">
+          <button class="input-group-text" (click)="onUpload(selfIntro.icon)" >上传</button>
+        </div>
+      </div>
+
+    </form>
+
+    <div >
+      <button class="btn btn-primary" (click)="save(selfIntro)">修改</button>
+      <button class="btn btn-danger" (click)="reset()" >重置</button>
+    </div>
+
+  </div>
+
+  <div class="card-footer text-muted">
+    admin
+  </div>
+</div>

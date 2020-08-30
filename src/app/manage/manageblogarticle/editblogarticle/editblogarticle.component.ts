@@ -141,11 +141,13 @@ export class EditblogarticleComponent implements OnInit {
 
   ckistrue() {
     this.ck = true;
+    this.article.editType = 0;
     this.md = false;
   }
 
   mdistrue() {
     this.md = true;
+    this.article.editType = 1;
     this.ck = false;
   }
 

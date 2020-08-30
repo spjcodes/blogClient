@@ -26,6 +26,11 @@ import { EdittypeComponent } from './manage/managetypes/edittype/edittype.compon
 import { ManageresumerComponent } from './manage/manageresumer/manageresumer.component';
 import {ResumerService} from './service/resumer.service';
 import { EditresumerComponent } from './manage/manageresumer/editresumer/editresumer.component';
+import {SystemmanageService} from './service/systemmanage.service';
+import { ManageauthorsystemComponent } from './manage/manageauthorsystem/manageauthorsystem.component';
+import { EditselfintroComponent } from './manage/manageauthorsystem/editselfintro/editselfintro.component';
+import { ShowcontentComponent } from './index/body/rightarea/showcontent/showcontent.component';
+import { TohtmlPipe } from './pipe/tohtml.pipe';
 
 
 @NgModule({
@@ -48,6 +53,10 @@ import { EditresumerComponent } from './manage/manageresumer/editresumer/editres
     EdittypeComponent,
     ManageresumerComponent,
     EditresumerComponent,
+    ManageauthorsystemComponent,
+    EditselfintroComponent,
+    ShowcontentComponent,
+    TohtmlPipe,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +74,7 @@ import { EditresumerComponent } from './manage/manageresumer/editresumer/editres
     BlogarticleserService,
     ArticletypeService,
     ResumerService,
+    SystemmanageService,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,8 +1,8 @@
 <div class="articleArea">
 
-  <div class="card blogArticleBox" *ngFor="let b of blogArticleList">
+  <div class="card blogArticleBox" *ngFor="let b of blogArticleList" (click)="toInfo(b.id)">
     <img width="100%" class="blogArticleImg" [src]=b.bolgcover class="card-img-top" alt="...">
-    <div class="card-body">
+    <div class="card-body" >
       <h3>{{b.title}}</h3>
       <p class="card-text">
         {{b.intro}}

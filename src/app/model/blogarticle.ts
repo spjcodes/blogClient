@@ -6,6 +6,7 @@ export class BlogArticle {
   typeid: string;
   content: string;
   iscomment: number;
+  editType: number;
   isoriginal: number;
   createtime: string;
   isuseful: number;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {BlogarticleserService} from '../../../service/blogarticleser.service';
 import {BlogArticle} from '../../../model/blogarticle';
 import {ResponseBody} from '../../../model/responseBody';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-rightarea',
@@ -11,7 +12,7 @@ import {ResponseBody} from '../../../model/responseBody';
 export class RightareaComponent implements OnInit {
 
   blogArticleList: Array<BlogArticle>;
-  constructor(private blogArtSer: BlogarticleserService) { }
+  constructor(private blogArtSer: BlogarticleserService, private router: Router) { }
 
   ngOnInit() {
     this.initBlogArticleList();
@@ -26,5 +27,9 @@ export class RightareaComponent implements OnInit {
         alert('获取博文信息失败！！');
       }
     });
+  }
+
+  toInfo(id: string) {
+   this.router.navigate(['showContent', id]);
   }
 }

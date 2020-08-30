@@ -8,11 +8,15 @@ import {ManagetypesComponent} from './manage/managetypes/managetypes.component';
 import {EdittypeComponent} from './manage/managetypes/edittype/edittype.component';
 import {ManageresumerComponent} from './manage/manageresumer/manageresumer.component';
 import {EditresumerComponent} from './manage/manageresumer/editresumer/editresumer.component';
+import {EditselfintroComponent} from './manage/manageauthorsystem/editselfintro/editselfintro.component';
+import {ManageauthorsystemComponent} from './manage/manageauthorsystem/manageauthorsystem.component';
+import {ShowcontentComponent} from './index/body/rightarea/showcontent/showcontent.component';
 
 const routes: Routes = [
   {path: 'index', component: PageoneComponent},
   { path: '', redirectTo: '/index', pathMatch: 'full' },
   {path: 'manageIndex', component: ManageindexComponent},
+  {path: 'showContent/:id', component: ShowcontentComponent},
   {path: 'manageIndex', component: ManageindexComponent,
     children: [
       {path: '' , component: ManageblogarticleComponent },
@@ -22,7 +26,10 @@ const routes: Routes = [
       {path: 'editType/:id', component: EdittypeComponent},
       {path: 'resumerManage', component: ManageresumerComponent},
       {path: 'editResumer/:id', component: EditresumerComponent},
+      {path: 'systemfunctioManage', component: ManageauthorsystemComponent},
+      {path: 'editSelfIntro', component: EditselfintroComponent},
     ],
+
   },
 
 

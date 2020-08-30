@@ -31,6 +31,7 @@ export class ManageblogarticleComponent implements OnInit {
     this.bloArtSer.getBlogArticleList().then((data: any) => {
       if (data.status === 'successful') {
         this.artls = data.object;
+console.dir(this.artls);
       }
     });
   }

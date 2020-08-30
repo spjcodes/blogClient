@@ -3,6 +3,8 @@ import {BlogArticleTypes} from '../../../model/BlogArticleTypes';
 import {ArticletypeService} from '../../../service/articletype.service';
 import {Route} from '@angular/router';
 import {ResponseBody} from '../../../model/responseBody';
+import {SystemmanageService} from '../../../service/systemmanage.service';
+import {SelfIntro} from '../../../model/SelfIntro';
 
 @Component({
   selector: 'app-leftarea',
@@ -12,13 +14,14 @@ import {ResponseBody} from '../../../model/responseBody';
 export class LeftareaComponent implements OnInit {
 
   typesList: Array<BlogArticleTypes>;
+  selfIntro: SelfIntro;
 
-  constructor(private typesSer: ArticletypeService) { }
+  constructor(private typesSer: ArticletypeService, private systemManage: SystemmanageService) { }
 
   ngOnInit() {
     this.initTypeList();
+    this.initSelfIntro();
   }
-
 
   private initTypeList() {
     this.typesSer.getTypeList().then((data: ResponseBody) => {
@@ -31,4 +34,14 @@ export class LeftareaComponent implements OnInit {
     });
   }
 
+  private initSelfIntro() {
+    this.systemManage.getSelfIntro().then((data: ResponseBody) => {
+      if (data.status === 'successful') {
+        this.selfIntro = new SelfIntro();
+        this.selfIntro = data.object;
+      } else {
+        alert('erro:' + data.object);
+      }
+    });
+  }
 }
