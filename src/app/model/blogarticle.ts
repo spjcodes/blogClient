@@ -10,4 +10,5 @@ export class BlogArticle {
   isoriginal: number;
   createtime: string;
   isuseful: number;
+  visits: number;
 }

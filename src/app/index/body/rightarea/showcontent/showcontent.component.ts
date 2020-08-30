@@ -24,7 +24,6 @@ export class ShowcontentComponent implements OnInit {
   constructor(private activeRouter: ActivatedRoute, private  ariSer: BlogarticleserService) { }
 
   ngOnInit() {
-
     this.initArticle();
   }
 
@@ -34,8 +33,7 @@ export class ShowcontentComponent implements OnInit {
       if (data.status === 'successful') {
         this.artice = data.object;
 
-
-
+        // 使makedown 文件解析成html
         this.conf.markdown = this.artice.content;
         editormd.markdownToHTML('detailmarkdown', this.conf);
 

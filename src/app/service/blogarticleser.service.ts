@@ -73,4 +73,9 @@ export class BlogarticleserService {
     }
     return this.http.post(this.updateArticleURL, p).toPromise();
   }
+
+  private visitsCountURL = this.config.getHost() + 'blogArticle/visitsCount';
+  visitsCount(id: string) {
+    return this.http.post(this.visitsCountURL, {'id': id}).toPromise();
+  }
 }

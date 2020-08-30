@@ -30,6 +30,8 @@ export class RightareaComponent implements OnInit {
   }
 
   toInfo(id: string) {
-   this.router.navigate(['showContent', id]);
+
+    this.blogArtSer.visitsCount(id);
+    this.router.navigate(['showContent', id]);
   }
 }
