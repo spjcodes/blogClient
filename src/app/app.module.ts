@@ -31,6 +31,7 @@ import { ManageauthorsystemComponent } from './manage/manageauthorsystem/managea
 import { EditselfintroComponent } from './manage/manageauthorsystem/editselfintro/editselfintro.component';
 import { ShowcontentComponent } from './index/body/rightarea/showcontent/showcontent.component';
 import { TohtmlPipe } from './pipe/tohtml.pipe';
+import { MarkedPipe } from './pipe/marked.pipe';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { TohtmlPipe } from './pipe/tohtml.pipe';
     EditselfintroComponent,
     ShowcontentComponent,
     TohtmlPipe,
+    MarkedPipe,
   ],
   imports: [
     BrowserModule,

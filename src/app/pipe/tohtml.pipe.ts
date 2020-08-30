@@ -8,7 +8,7 @@ export class TohtmlPipe implements PipeTransform {
 
   constructor(private _sanitizer: DomSanitizer) {}
 
-  transform(html: string): tohtml {
+  transform(html: string): any {
     return this._sanitizer.bypassSecurityTrustHtml(html);
   }
 

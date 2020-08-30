@@ -17,7 +17,7 @@
         <span class="marginLeft12" *ngIf="artice.isoriginal">原创</span>
         <span class="marginLeft12" *ngIf="!artice.isoriginal">非原创</span>
         <span class="marginLeft12">
-           {{artice.isuseful}} 人觉得有用
+           {{artice.isuseful}} 个人觉得有用
         </span>
       </div>
     </div>
@@ -27,9 +27,10 @@
     <hr>
     <div *ngIf="artice.editType" [innerHTML]="artice.content| tohtml"> </div>
 
-   <div [src]="artice.co" markdown>
+    <div id="detailmarkdown">
+      <textarea style="display:none;">{{artice.content}}</textarea>
+    </div>
 
-   </div>
   </div>
 
   <div class="foot">

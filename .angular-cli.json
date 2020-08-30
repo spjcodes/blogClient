@@ -19,14 +19,19 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "assets/editor.md/css/editormd.css",
-        "styles.css"
+        "styles.css",
+        "assets/editorMd/css/editormd.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
         "../node_modules/popper.js/dist/umd/popper.js",
         "../node_modules/bootstrap/dist/js/bootstrap.js",
-        "assets/editor.md/editormd.min.js"
+
+        "assets/editorMd/editormd.js",
+        "assets/editorMd/js/editormd.min.js",
+        "assets/editorMd/lib/marked.min.js",
+        "assets/editorMd/lib/prettify.min.js"
+
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
