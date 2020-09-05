@@ -2,7 +2,7 @@ export class Mdconfig {
 
   public width = '100%';
   public height = '400';
-  public path = './assets/md_editor/lib/';
+  public path = './assets/editor_md/lib';
   public codeFold: true;
   public searchReplace = true;
   public toolbar = true;

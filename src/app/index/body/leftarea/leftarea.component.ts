@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BlogArticleTypes} from '../../../model/BlogArticleTypes';
 import {ArticletypeService} from '../../../service/articletype.service';
-import {Route} from '@angular/router';
+import {Router} from '@angular/router';
 import {ResponseBody} from '../../../model/responseBody';
 import {SystemmanageService} from '../../../service/systemmanage.service';
 import {SelfIntro} from '../../../model/SelfIntro';
@@ -16,7 +16,8 @@ export class LeftareaComponent implements OnInit {
   typesList: Array<BlogArticleTypes>;
   selfIntro: SelfIntro;
 
-  constructor(private typesSer: ArticletypeService, private systemManage: SystemmanageService) { }
+  constructor(private typesSer: ArticletypeService, private systemManage: SystemmanageService,
+              private router: Router) { }
 
   ngOnInit() {
     this.initTypeList();
@@ -36,6 +37,7 @@ export class LeftareaComponent implements OnInit {
 
   private initSelfIntro() {
     this.systemManage.getSelfIntro().then((data: ResponseBody) => {
+
       if (data.status === 'successful') {
         this.selfIntro = new SelfIntro();
         this.selfIntro = data.object;
@@ -43,5 +45,9 @@ export class LeftareaComponent implements OnInit {
         alert('erro:' + data.object);
       }
     });
+  }
+
+  goThisTypeList(type: string) {
+    this.router.navigate(['index/', type]);
   }
 }

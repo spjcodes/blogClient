@@ -19,7 +19,7 @@
 <h5 style="margin-top:24px;">文章分类</h5>
 <hr>
 <ul class="list-unstyled" style="margin-top: 24px">
-  <li class="media row" *ngFor="let t of typesList" style="margin-top: 18px;">
+  <li (click)="goThisTypeList(t.typename)" class="media row" *ngFor="let t of typesList" style="margin-top: 18px;">
     <div class="col-4" style="width:100%;overflow: hidden;">
       <img [src]="t.icon"  width="86" class="mr-2" alt="...">
     </div>

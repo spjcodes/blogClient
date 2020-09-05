@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {ConfigService} from './config.service';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {BlogArticle} from '../model/blogarticle';
-import {baseBuildCommandOptions} from '@angular/cli/commands/build';
 
 @Injectable()
 export class BlogarticleserService {
@@ -77,5 +76,10 @@ export class BlogarticleserService {
   private visitsCountURL = this.config.getHost() + 'blogArticle/visitsCount';
   visitsCount(id: string) {
     return this.http.post(this.visitsCountURL, {'id': id}).toPromise();
+  }
+
+  private getBlogArticleByTepeURL = this.config.getHost() + 'blogArticle/getBlogsArticleByType';
+  getBlogArticleByType(type: string) {
+    return this.http.post(this.getBlogArticleByTepeURL, {'typeid': type}).toPromise();
   }
 }

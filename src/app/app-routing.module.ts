@@ -13,7 +13,7 @@ import {ManageauthorsystemComponent} from './manage/manageauthorsystem/manageaut
 import {ShowcontentComponent} from './index/body/rightarea/showcontent/showcontent.component';
 
 const routes: Routes = [
-  {path: 'index', component: PageoneComponent},
+  {path: 'index/:id', component: PageoneComponent},
   { path: '', redirectTo: '/index', pathMatch: 'full' },
   {path: 'manageIndex', component: ManageindexComponent},
   {path: 'showContent/:id', component: ShowcontentComponent},
